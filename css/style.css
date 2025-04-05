@@ -673,8 +673,8 @@ footer {
 .main-card::before {
     content: "✨ Рекомендуем всем";
     position: absolute;
-    top: 12px;
-    right: -32px;
+    top: 48px;
+    right: -48px;
     background-color: var(--accent);
     color: white;
     padding: 5px 40px;
@@ -741,8 +741,8 @@ footer {
     }
     
     .main-card::before {
-        top: 8px;
-        right: -35px;
+        top: 32px;
+        right: -48px;
         padding: 3px 35px;
         font-size: 0.7rem;
     }
