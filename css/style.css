@@ -106,6 +106,19 @@ nav a:hover::after, nav a.active::after {
     width: 100%;
 }
 
+a[target="_blank"]::after {
+    content: ' ↗';
+    font-size: 0.8em;
+    vertical-align: super;
+}
+
+nav a[target="_blank"]::after {
+    content: ' ↗';
+    font-size: 0.7em;
+    vertical-align: super;
+    margin-left: 1px;
+}
+
 /* Hero Section */
 .hero {
     padding: 100px 0;
@@ -172,6 +185,16 @@ nav a:hover::after, nav a.active::after {
 
 .search-box button:hover {
     background-color: #e5006d;
+}
+
+.search-hint {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.9rem;
+    text-align: center;
+    margin-top: 15px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* Rules Section */
@@ -241,9 +264,16 @@ nav a:hover::after, nav a.active::after {
 
 .quiz h2 {
     text-align: center;
-    margin-bottom: 50px;
+    margin-bottom: 20px;
     font-size: 2.5rem;
     color: var(--dark);
+}
+
+.quiz-subtitle {
+    text-align: center;
+    margin-bottom: 30px;
+    color: var(--gray);
+    font-size: 1.1rem;
 }
 
 .quiz-container {
@@ -543,15 +573,64 @@ footer {
         width: 100%;
         border-radius: 0;
     }
+    
+    .quiz {
+        padding: 60px 0 40px;
+    }
 
     .options {
         flex-direction: column;
+        gap: 8px;
+        margin-bottom: 20px;
+    }
+
+    .option {
+        padding: 8px 12px;
+        font-size: 0.95rem;
+    }
+
+    .quiz-question p {
+        font-size: 1.1rem;
+        margin-bottom: 12px;
+    }
+
+    .quiz-container {
+        padding: 20px 15px;
+    }
+
+    .quiz-explanation {
+        font-size: 0.85rem;
+        padding: 10px;
+        margin-top: 12px;
+        max-height: 120px;
+        overflow-y: auto;
+    }
+    
+    .quiz-controls {
+        margin-top: 15px;
+    }
+    
+    .btn-next {
+        padding: 8px 20px;
+        font-size: 0.95rem;
     }
 
     .filter-bar {
         overflow-x: auto;
         padding-bottom: 10px;
         justify-content: flex-start;
+    }
+
+    .examples-grid {
+        grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+    }
+    
+    .rule-section {
+        padding: 20px 15px;
+    }
+    
+    .example-word {
+        margin-bottom: 5px;
     }
 }
 
@@ -569,4 +648,298 @@ footer {
 
 .rule-card, .quiz-container, .dictionary-item {
     animation: fadeIn 0.5s ease forwards;
+}
+
+.special-card {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.8)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100" fill="none"><path d="M30 70L50 30L70 70H30Z" stroke="%234361ee" stroke-width="2"/><circle cx="50" cy="50" r="20" stroke="%23f72585" stroke-width="2"/></svg>');
+    background-size: 100px;
+    border: 2px solid var(--primary);
+}
+
+.main-card {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.8)), 
+                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100" fill="none"><path d="M30 70L50 30L70 70H30Z" stroke="%234361ee" stroke-width="2"/><circle cx="50" cy="50" r="20" stroke="%23f72585" stroke-width="2"/><rect x="20" y="20" width="60" height="60" rx="5" stroke="%2338b000" stroke-width="2" stroke-dasharray="5 3"/></svg>');
+    background-size: 80px;
+    border: 3px solid var(--accent);
+    box-shadow: 0 8px 20px rgba(247, 37, 133, 0.15);
+    padding: 35px;
+    position: relative;
+    overflow: hidden;
+}
+
+.main-card::before {
+    content: "✨ Рекомендуем всем";
+    position: absolute;
+    top: 12px;
+    right: -32px;
+    background-color: var(--accent);
+    color: white;
+    padding: 5px 40px;
+    font-size: 0.8rem;
+    transform: rotate(45deg);
+    font-weight: bold;
+}
+
+.level-tag {
+    display: inline-block;
+    background-color: rgba(67, 97, 238, 0.1);
+    color: var(--primary);
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 0.7rem;
+    font-weight: 500;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.main-card h3 {
+    font-size: 1.8rem;
+}
+
+.main-card p {
+    max-width: 600px;
+    margin: 0 auto 20px;
+    font-size: 1.1rem;
+}
+
+.main-card .btn-more {
+    align-self: center;
+    padding: 12px 30px;
+    font-size: 1.1rem;
+}
+
+.special-card h3 {
+    color: var(--accent);
+}
+
+.special-card .btn-more {
+    background-color: var(--accent);
+    color: white;
+    border-color: var(--accent);
+}
+
+.special-card .btn-more:hover {
+    background-color: transparent;
+    color: var(--accent);
+}
+
+@media (max-width: 768px) {
+    .main-card {
+        padding: 25px 20px 25px;
+    }
+    
+    .main-card h3 {
+        font-size: 1.5rem;
+    }
+    
+    .main-card p {
+        font-size: 1rem;
+    }
+    
+    .main-card::before {
+        top: 8px;
+        right: -35px;
+        padding: 3px 35px;
+        font-size: 0.7rem;
+    }
+}
+
+/* Стили для карточек правил */
+.styled-rules {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.rule-section {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+    padding: 25px;
+    border-left: 4px solid #4361ee;
+    margin-bottom: 25px;
+}
+
+.rule-icon {
+    display: inline-block;
+    margin-right: 10px;
+    font-size: 1.2em;
+}
+
+.rule-section h3 {
+    color: #4361ee;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.styled-list {
+    padding-left: 20px;
+}
+
+.styled-list li {
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.styled-list li::before {
+    content: '•';
+    color: #4361ee;
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+}
+
+.example {
+    background-color: rgba(67, 97, 238, 0.1);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-weight: 500;
+}
+
+.examples-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.example-card {
+    background-color: rgba(67, 97, 238, 0.1);
+    border-radius: 6px;
+    padding: 10px 15px;
+    text-align: center;
+    font-weight: 500;
+}
+
+.example-card small {
+    display: block;
+    font-weight: normal;
+    font-size: 0.8em;
+    margin-top: 4px;
+    color: var(--gray);
+}
+
+.tip-box {
+    background-color: #fff3cd;
+    border-left: 4px solid #ffc107;
+    padding: 15px 20px;
+    border-radius: 5px;
+    margin-top: 20px;
+    margin-bottom: 25px;
+}
+
+.tip-box h4 {
+    margin-top: 0;
+    color: #856404;
+}
+
+/* Стили для карточки "Простые правила" */
+.simple-rules {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.simple-rule-card {
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    padding: 20px;
+    border-left: 5px solid #4361ee;
+}
+
+.simple-rule-card:nth-child(2) {
+    border-left-color: #f72585;
+}
+
+.simple-rule-card:nth-child(3) {
+    border-left-color: #38b000;
+}
+
+.simple-rule-card h3 {
+    margin-top: 0;
+    color: #212529;
+}
+
+.simple-rule-card ul {
+    margin-bottom: 15px;
+}
+
+.simple-examples {
+    background-color: rgba(67, 97, 238, 0.1);
+    padding: 12px 15px;
+    border-radius: 8px;
+    margin-top: 15px;
+}
+
+.simple-rule-card:nth-child(2) .simple-examples {
+    background-color: rgba(247, 37, 133, 0.1);
+}
+
+.simple-rule-card:nth-child(3) .simple-examples {
+    background-color: rgba(56, 176, 0, 0.1);
+}
+
+.example-title {
+    font-weight: bold;
+    margin-right: 8px;
+}
+
+.example-word {
+    display: inline-block;
+    background-color: white;
+    padding: 3px 8px;
+    border-radius: 20px;
+    margin: 2px;
+    font-size: 0.9em;
+}
+
+.memory-tips {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.tip {
+    background-color: #fff3cd;
+    border-left: 4px solid #ffc107;
+    padding: 15px 20px;
+    border-radius: 5px;
+}
+
+.tip h4 {
+    margin-top: 0;
+    color: #856404;
+}
+
+@media (max-width: 768px) {
+    .examples-grid {
+        grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+    }
+    
+    .rule-section {
+        padding: 20px 15px;
+    }
+    
+    .example-word {
+        margin-bottom: 5px;
+    }
+}
+
+.quiz-explanation {
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 10px;
+    background-color: var(--light-gray);
+    font-size: 0.95rem;
+    line-height: 1.4;
+}
+
+.quiz-explanation p {
+    margin: 0;
 } 

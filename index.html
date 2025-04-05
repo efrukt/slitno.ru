@@ -17,10 +17,11 @@
             </div>
             <nav>
                 <ul>
-                    <li><a href="#" class="active">Главная</a></li>
+                    <li><a href="#">Главная</a></li>
                     <li><a href="#rules">Правила</a></li>
                     <li><a href="#quiz">Тесты</a></li>
                     <li><a href="#dictionary">Словарь</a></li>
+                    <li><a href="https://tsya.ru" target="_blank">тся/ться</a></li>
                 </ul>
             </nav>
         </div>
@@ -34,6 +35,7 @@
                 <input type="text" id="wordSearch" placeholder="Введите слово для проверки...">
                 <button id="searchBtn">Проверить</button>
             </div>
+            <p class="search-hint">Можно искать по части слова, например: «что», «тся», «вследствие»</p>
         </div>
     </section>
 
@@ -41,17 +43,25 @@
         <div class="container">
             <h2>Основные правила</h2>
             <div class="rules-grid">
+                <div class="rule-card special-card main-card">
+                    <h3>Простые правила</h3>
+                    <p>Понятное объяснение правописания с примерами и подсказками для всех.</p>
+                    <a href="#" class="btn-more" data-type="simple">Подробнее</a>
+                </div>
                 <div class="rule-card">
+                    <div class="level-tag">Средний уровень</div>
                     <h3>Слитное написание</h3>
                     <p>Правила для слитного написания слов и примеры их использования.</p>
                     <a href="#" class="btn-more" data-type="together">Подробнее</a>
                 </div>
                 <div class="rule-card">
+                    <div class="level-tag">Средний уровень</div>
                     <h3>Раздельное написание</h3>
                     <p>Когда слова пишутся раздельно и как не ошибиться.</p>
                     <a href="#" class="btn-more" data-type="separate">Подробнее</a>
                 </div>
                 <div class="rule-card">
+                    <div class="level-tag">Средний уровень</div>
                     <h3>Дефисное написание</h3>
                     <p>Все случаи использования дефиса в русском языке.</p>
                     <a href="#" class="btn-more" data-type="hyphen">Подробнее</a>
@@ -63,6 +73,7 @@
     <section id="quiz" class="quiz">
         <div class="container">
             <h2>Проверьте свои знания</h2>
+            <p class="quiz-subtitle">Случайные вопросы на правописание слов</p>
             <div class="quiz-container">
                 <div id="quiz-question" class="quiz-question">
                     <p>Как правильно пишется?</p>
@@ -72,7 +83,7 @@
                     </div>
                 </div>
                 <div class="quiz-controls">
-                    <button id="nextQuestion" class="btn-next">Следующий вопрос</button>
+                    <button id="nextQuestion" class="btn-next">Еще вопрос ↻</button>
                 </div>
             </div>
         </div>
@@ -109,6 +120,7 @@
                         <li><a href="#rules">Правила</a></li>
                         <li><a href="#quiz">Тесты</a></li>
                         <li><a href="#dictionary">Словарь</a></li>
+                        <li><a href="https://tsya.ru" target="_blank">тся/ться</a></li>
                     </ul>
                 </div>
                 <div class="footer-contact">
